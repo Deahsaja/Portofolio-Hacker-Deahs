@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Hacker Deahs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      color: #00ff00;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 20px #00ff0050;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .terminal {
+      background: #111;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 20px #00ff0050;
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+
+    .line {
+      margin: 5px 0;
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    a {
+      color: #00ff00;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="fotoku.jpg" alt="Deahs Profile Photo">
+      <h1>Deahs.exe</h1>
+    </div>
+
+    <div class="terminal" id="terminal">
+      <div class="line">Initializing portfolio...</div>
+      <div class="line">Loading profile...</div>
+      <div class="line">Connecting to network...</div>
+    </div>
+  </div>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const content = [
+      "> login: Deahs",
+      "> status: online",
+      "> role: Freelance Pentester / Cyber Enthusiast",
+      "> about_me",
+      "Aku adalah seorang yang melihat dunia apa adanya Tidak suka bermimpi terlalu tinggi tanpa aksi nyata. Dia tahu kapan harus optimis dan kapan harus bersiap menghadapi kenyataan.",
+      "> skills",
+      "- Analisis    [██████████] 90%",
+      "- Olahraga    [████████  ] 80%",
+      "- Patience    [███████   ] 70%",
+      "- Ilustrasi   [█████████ ] 85%",
+      "- Coding      [██████    ] 60%",
+      "> projects",
+      "1. Web Terlarang",
+      "2. Web Virus",
+      "3. Web Pribadi",
+      "> contact",
+      "Instagram: xxdeahs",
+      "Tiktok: @deahs",
+      "Facebook: Deahs",
+      "> end of log",
+      "_"
+    ];
+
+    let i = 0;
+    function addLine() {
+      if(i < content.length) {
+        const line = document.createElement('div');
+        line.className = 'line';
+        line.textContent = content[i];
+        terminal.appendChild(line);
+        i++;
+        setTimeout(addLine, 800);
+      } else {
+        terminal.lastChild.classList.add('blink');
+      }
+    }
+
+    setTimeout(addLine, 1500);
+  </script>
+</body>
+</html>
